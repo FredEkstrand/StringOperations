@@ -1,0 +1,5 @@
+C:\SoftwareProjects\StringOperations\obj\Debug\StringOperations.csprojResolveAssemblyReference.cache
+C:\SoftwareProjects\StringOperations\bin\Debug\StringOperations.dll
+C:\SoftwareProjects\StringOperations\bin\Debug\StringOperations.pdb
+C:\SoftwareProjects\StringOperations\obj\Debug\StringOperations.dll
+C:\SoftwareProjects\StringOperations\obj\Debug\StringOperations.pdb

@@ -1,0 +1,7 @@
+C:\SoftwareProjects\StringOperations\bin\Release\StringOperations.dll
+C:\SoftwareProjects\StringOperations\bin\Release\StringOperations.pdb
+C:\SoftwareProjects\StringOperations\bin\Release\System.Net.Http.dll
+C:\SoftwareProjects\StringOperations\bin\Release\System.Net.Http.xml
+C:\SoftwareProjects\StringOperations\obj\Release\StringOperations.csprojResolveAssemblyReference.cache
+C:\SoftwareProjects\StringOperations\obj\Release\StringOperations.dll
+C:\SoftwareProjects\StringOperations\obj\Release\StringOperations.pdb
