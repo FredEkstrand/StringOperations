@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StringOperations</name>
+    </assembly>
+    <members>
+        <member name="T:Ekstrand.Text.StringOperations">
+            <summary>
+            A collection of string operations.
+            </summary>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadCenter(System.String,System.Int32,System.Char)">
+            <summary>
+            Center align text in a defined string column. 
+            </summary>
+            <param name="str">String to be centered in string column.</param>
+            <param name="totalWidth">Integer total width of the string column (length) to place a string in.</param>
+            <param name="paddingChar">Char padding character default is space.</param>
+            <returns>Return a string centered in defined length.</returns>
+            <remarks>If given string is larger than given string column length the given string is returned.</remarks>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadCenterCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Center align text in a defined string column. If given string is larger it would be centered and crop on both ends.
+            </summary>
+            <param name="str">String to be inserted in the string column</param>
+            <param name="totalWidth">Integer string column width (length).</param>
+            <param name="paddingChar">Char char value used to padded the inserted string into defined string column.</param>
+            <returns>Return a string with the inserted string centered aligned. The return string would also cropped any characters from the given string if needed.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadRightCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Left align text in a defined string column.
+            </summary>
+            <param name="str">String to be inserted into a defined sting column.</param>
+            <param name="totalWidth">Integer total width of the string column (length).</param>
+            <param name="paddingChar">Char character value used for padding. Default is space.</param>
+            <returns>Returns a new string with given string left aligned to string column and any characters over the defined column width would be cropped.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadLeftCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Right align text in a defined string column.
+            </summary>
+            <param name="str">String to be inserted into a string column.</param>
+            <param name="totalWidth">Integer total width of the string column (length).</param>
+            <param name="paddingChar">Char character value used for padding. Default is space.</param>
+            <returns>Returns a new string with the given string right aligned to the string column and any characters over the defined column would be cropped.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Replace(System.String,System.Char[],System.Char)">
+            <summary>
+            Returns a new string in which all occurrences of a specified Unicode character in this instance are replaced with another specified Unicode character.
+            </summary>
+            <param name="str">String to have its characters replaced.</param>
+            <param name="oldChars">The Unicode character array of characters to be replaced.</param>
+            <param name="newChar">The Unicode character to replace all occurrences of oldChar. </param>
+            <returns>
+            A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
+            </returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Replace(System.String,System.Char[],System.Char[])">
+            <summary>
+            Returns a new string in which all occurrences of a specified Unicode character in this instance are replaced with another specified Unicode character.
+            </summary>
+            <param name="str">String to have its characters replaced.</param>
+            <param name="oldChars">The Unicode character array of characters to be replaced</param>
+            <param name="newChars">The Unicode character to replace all occurrences of oldChar[] at same element index.</param>
+            <returns>
+             A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
+            </returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FillString(System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Populates the string builder a defined number of blanks.
+            </summary>
+            <param name="sb">StringBuilder instance to populate blanks into.</param>
+            <param name="length">Integer number of blanks to be inserted into the StringBuiler.</param>
+            <returns>Returns the StringBuilder with populated blanks (spaces).</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FillString(System.Text.StringBuilder,System.Int32,System.Char)">
+            <summary>
+            Populates the string builder with defined character.
+            </summary>
+            <param name="sb">StringBuilder instance to populate blanks into.</param>
+            <param name="length">Integer number of blanks to be inserted into the StringBuiler.</param>
+            <param name="chr">Character to be used to populate the StringBuilder.</param>
+            <returns>Returns the StringBuilder with populated blanks (spaces).</returns>
+        </member>
+    </members>
+</doc>

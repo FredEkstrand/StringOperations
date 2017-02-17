@@ -27,6 +27,9 @@ using System.Text;
 
 namespace Ekstrand.Text
 {
+    /// <summary>
+    /// A collection of string operations.
+    /// </summary>
     public static class StringOperations
     {
         /// <summary>
@@ -172,7 +175,7 @@ namespace Ekstrand.Text
         /// </summary>
         /// <param name="str">String to have its characters replaced.</param>
         /// <param name="oldChars">The Unicode character array of characters to be replaced.</param>
-        /// <param name="newChar">The Unicode character to replace all occurrences of oldChar[]. </param>
+        /// <param name="newChar">The Unicode character to replace all occurrences of oldChar. </param>
         /// <returns>
         /// A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
         /// </returns>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Ekstrand.Text namespace" Url="html/233013fb-1675-f282-f24e-d384c8e54c25.htm" />
+  <HelpKINode Title="Ekstrand.Text.StringOperations class" Url="html/b4140e79-72d4-b08b-33d2-31b03c80459f.htm" />
+  <HelpKINode Title="PadCenter method" Url="html/9e64c1f1-b251-9dc8-2701-c70ef3ab991e.htm" />
+  <HelpKINode Title="PadCenterCrop method" Url="html/65a1128b-6228-27da-1e19-8311793a91e4.htm" />
+  <HelpKINode Title="PadLeftCrop method" Url="html/2b97f2dc-dce0-ed96-6c74-34b9195c796c.htm" />
+  <HelpKINode Title="PadRightCrop method" Url="html/1871c159-92de-2676-15ca-854cee6afcec.htm" />
+  <HelpKINode Title="Replace method" Url="html/6842529a-2480-3fa2-18da-300d9b6d4f91.htm" />
+  <HelpKINode Title="StringOperations class">
+    <HelpKINode Title="StringOperations Class" Url="html/b4140e79-72d4-b08b-33d2-31b03c80459f.htm" />
+    <HelpKINode Title="about StringOperations class" Url="html/b4140e79-72d4-b08b-33d2-31b03c80459f.htm" />
+    <HelpKINode Title="methods" Url="html/b77146a4-aea0-cdad-f3a2-7dcb039528e5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StringOperations.PadCenter method" Url="html/9e64c1f1-b251-9dc8-2701-c70ef3ab991e.htm" />
+  <HelpKINode Title="StringOperations.PadCenterCrop method" Url="html/65a1128b-6228-27da-1e19-8311793a91e4.htm" />
+  <HelpKINode Title="StringOperations.PadLeftCrop method" Url="html/2b97f2dc-dce0-ed96-6c74-34b9195c796c.htm" />
+  <HelpKINode Title="StringOperations.PadRightCrop method" Url="html/1871c159-92de-2676-15ca-854cee6afcec.htm" />
+  <HelpKINode Title="StringOperations.Replace method" Url="html/6842529a-2480-3fa2-18da-300d9b6d4f91.htm" />
+</HelpKI>
