@@ -23,13 +23,11 @@ SOFTWARE.
 A746-8U6HF-VAPG3-150J5-96793-L2MJ1-E3EJ
 */
 using System;
+using System.IO;
 using System.Text;
 
 namespace Ekstrand.Text
 {
-    /// <summary>
-    /// A collection of string operations.
-    /// </summary>
     public static class StringOperations
     {
         /// <summary>
@@ -98,7 +96,7 @@ namespace Ekstrand.Text
             {
                 if (value < 0)
                 {
-                    if((i+clip) < str.Length)
+                    if ((i + clip) < str.Length)
                     {
                         sb[i] = str[i + clip];
                     }
@@ -115,7 +113,7 @@ namespace Ekstrand.Text
                         sb.Append(paddingChar);
                     }
                 }
-    
+
             }
 
             return sb.ToString();
@@ -171,11 +169,11 @@ namespace Ekstrand.Text
 
 
         /// <summary>
-        /// Returns a new string in which all occurrences of a specified Unicode character in this instance are replaced with another specified Unicode character.
+        /// Returns a new string in which all occurrences of all Unicode character in an array with the specified Unicode character.
         /// </summary>
         /// <param name="str">String to have its characters replaced.</param>
         /// <param name="oldChars">The Unicode character array of characters to be replaced.</param>
-        /// <param name="newChar">The Unicode character to replace all occurrences of oldChar. </param>
+        /// <param name="newChar">The Unicode character to replace all occurrences of oldChar[]. </param>
         /// <returns>
         /// A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
         /// </returns>
@@ -190,7 +188,7 @@ namespace Ekstrand.Text
 
 
         /// <summary>
-        /// Returns a new string in which all occurrences of a specified Unicode character in this instance are replaced with another specified Unicode character.
+        /// Returns a new string in which all occurrences of all Unicode characters in an array are replaced with the specified Unicode characters in an array at the same element index.
         /// </summary>
         /// <param name="str">String to have its characters replaced.</param>
         /// <param name="oldChars">The Unicode character array of characters to be replaced</param>
@@ -200,7 +198,7 @@ namespace Ekstrand.Text
         /// </returns>
         public static string Replace(this string str, char[] oldChars, char[] newChars)
         {
-            if(oldChars.Length != newChars.Length)
+            if (oldChars.Length != newChars.Length)
             {
                 throw new Exception("Given character arrays are not of same length.");
             }
@@ -209,6 +207,30 @@ namespace Ekstrand.Text
             {
                 str = str.Replace(oldChars[i], newChars[i]);
             }
+            return str;
+        }
+
+        /// <summary>
+        /// Returns a new string in which the first character in the string is set to lower case.
+        /// </summary>
+        /// <param name="str">String to have its first character set to lower case.</param>
+        /// <returns>A string that is equivalent to this instance except that the first character is lower case.</returns>
+        public static string FirstCharToLowercase(this string str)
+        {
+            if (str.Length > 0)
+                return str.Substring(0, 1).ToLower() + str.Substring(1);
+            return str;
+        }
+
+        /// <summary>
+        /// Returns a new string in which the first character in the string is set to upper case.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns>A string that is equivalent to this instance except that the first character is upper case.</returns>String to have its first character set to upper case.
+        public static string FirstCharToUppercase(this string str)
+        {
+            if (str.Length > 0)
+                return str.Substring(0, 1).ToUpper() + str.Substring(1);
             return str;
         }
 
@@ -244,4 +266,35 @@ namespace Ekstrand.Text
             return sb;
         }
     }
+
+    /// <summary>
+    /// A collection of string operations that are not extension methods
+    /// </summary>
+    public static class StringUtil
+    {
+        /// <summary>
+        /// Return a converted string to a stream
+        /// </summary>
+        /// <param name="str">String to be converted to a stream.</param>
+        /// <returns>A stream that has the converted string value.</returns>
+        public static Stream StringToStream(string str)
+        {
+            byte[] byteArray = Encoding.Unicode.GetBytes(str);
+            return new MemoryStream(byteArray);
+        }
+
+        /// <summary>
+        /// Return a converted stream to a string
+        /// </summary>
+        /// <param name="str">Stream to be converted to a string.</param>
+        /// <returns>A string that has been converted from a stream.</returns>
+        public static String StreamToString(Stream str)
+        {
+            StreamReader reader = new StreamReader(str);
+            return reader.ReadToEnd();
+        }
+
+    }
 }
+
+// internal static class PatternMatcher
