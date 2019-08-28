@@ -1,7 +1,8 @@
 
 # String Operations
 
-![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg) ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg)
+![Version 1.0.0](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg) ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg) [![Build status](https://ci.appveyor.com/api/projects/status/oraodekq86t9786r?svg=true)](https://ci.appveyor.com/project/FredEkstrand/enigmabinarycipher-rxip2)
+
 
 
 <img src="https://github.com/FredEkstrand/ImageFiles/raw/master/StringOperations/BallofStrings.png " width=150 height=150 />
