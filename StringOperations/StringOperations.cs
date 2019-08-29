@@ -23,8 +23,10 @@ SOFTWARE.
 A746-8U6HF-VAPG3-150J5-96793-L2MJ1-E3EJ
 */
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace Ekstrand.Text
 {
@@ -235,6 +237,22 @@ namespace Ekstrand.Text
         }
 
         /// <summary>
+        /// Remove all escape illegal characters in a file name
+        /// </summary>
+        /// <param name="str">String to have illegal characters removed if present.</param>
+        /// <returns>Returns a new string with each illegal character(s) removed.</returns>
+        public static string EscapeIllegalChars(this string str)
+        {
+            var answer = str;
+            Path.GetInvalidFileNameChars().ToList().ForEach(c =>
+            {
+                answer = answer.Replace(c.ToString(), "");
+            });
+
+            return answer;
+        }
+
+        /// <summary>
         /// Populates the string builder a defined number of blanks.
         /// </summary>
         /// <param name="sb">StringBuilder instance to populate blanks into.</param>
@@ -265,6 +283,7 @@ namespace Ekstrand.Text
             }
             return sb;
         }
+
     }
 
     /// <summary>
@@ -290,11 +309,10 @@ namespace Ekstrand.Text
         /// <returns>A string that has been converted from a stream.</returns>
         public static String StreamToString(Stream str)
         {
-            StreamReader reader = new StreamReader(str);
+            StreamReader reader = new StreamReader(str,Encoding.Unicode);
             return reader.ReadToEnd();
         }
 
     }
+        
 }
-
-// internal static class PatternMatcher

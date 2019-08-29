@@ -1,0 +1,2 @@
+C:\SoftwareProjects\StringOperations\StringOperationsTester\obj\Release\StringOperationsTester.csprojAssemblyReference.cache
+C:\SoftwareProjects\StringOperations\StringOperationsTester\obj\Release\StringOperationsTester.csproj.CoreCompileInputs.cache

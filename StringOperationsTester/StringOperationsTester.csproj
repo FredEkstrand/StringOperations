@@ -42,9 +42,6 @@
     <Reference Include="NUnit3.TestAdapter">
       <HintPath>packages\NUnit3TestAdapter.3.7.0\tools\NUnit3.TestAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="StringOperations">
-      <HintPath>..\StringOperations\bin\Debug\StringOperations.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -65,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StringOperations\StringOperations.csproj">
+      <Project>{bfe45ad3-5d38-40e6-9532-22e573eaf97c}</Project>
+      <Name>StringOperations</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
