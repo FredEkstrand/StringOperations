@@ -29,14 +29,238 @@ Then in your code file add the following to the collection of using statement.
 using Ekstrand.Text;
 ```
 #### Examples
-1) Center string in a defined column width
+Strings used in code samples.
 ```csharp
-private const string StringSet2 = "Jacuzzi";
-string result = StringSet2.PadCenter(9, '#');
-
-/* result string value: #Jacuzzi# */
+        private const string _s1 = "Jacuzzi";
+        private const string _s2 = "Lorem ipsum dolor sit amet, [consectetur adipiscing elit]. Curabitur pretium {varius} pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.";
+        private const string _s3 = "UnsafeFileName\"<>?|\\/:.cs";
+        private const string _s4 = "Lorem ipsum dolor sit amet";
+        private const string _s5 = "torem ipsum dolor sit amet";
 ```
-{ additional code examples please }
+Example 1. PadCenter: Center string inside a defined column size. spaces would be padded to edge of column.
+```csharp
+string result = _s1.PadCenter(11,'#');
+Console.WriteLine("String column:  ###########");
+Console.WriteLine("PadCenter:      {0}", result);
+Console.WriteLine();
+
+/*
+String column:  ###########
+PadCenter:      ##Jacuzzi##
+*/
+```
+
+Example 2. PadCenter: If text is wider than given column width it would return the string.
+```csharp
+string result = _s1.PadCenter(6, '*');
+Console.WriteLine("String column:  ******");
+Console.WriteLine("PadCenter:      {0}", result);
+
+/*
+String column:  ******
+PadCenter:      Jacuzzi
+*/
+```
+
+Example 3. PadCenter: If text is odd length in an even length column then it would be centered with left justified.
+```csharp
+string result = _s1.PadCenter(8, '#');
+Console.WriteLine("String column:  ########");
+Console.WriteLine("PadCenter:      {0}", result);
+
+/*
+String column:  ########
+PadCenter:      Jacuzzi#
+*/
+```
+
+Example 4. PadCenterCrop: If text is wider than given column width it would center and crop any characters outside the column on both sides.
+```csharp
+string result = _s1.PadCenterCrop(5, '#');
+Console.WriteLine("String column:  #####");
+Console.WriteLine("PadCenterCrop:  {0}", result);
+ 
+/*
+String column:  #####
+PadCenterCrop:  acuzz
+*/
+```
+
+Example 5. PadCenterCrop: If text is odd width and the column is even width it would center, with left justified, and crop any characters outside the column.
+```csharp
+string result = _s1.PadCenterCrop(6, '#');
+Console.WriteLine("String column:  ######");
+Console.WriteLine("PadCenterCrop:  {0}", result);
+
+/*
+String column:  ######
+PadCenterCrop:  Jacuzz
+*/
+```
+
+Example 6. PadLeft: Text is shorter than text column it would be right justified and added padding on the left up to column width.
+```csharp
+string result = _s1.PadLeft(8, '#');
+Console.WriteLine("String column:  ########");
+Console.WriteLine("PadLeft:        {0}", result);
+
+/*
+String column:  ########
+PadLeft:        #Jacuzzi
+*/
+```
+
+Example 7. PadLeft: Text is wider than given column size it would return the text.
+```csharp
+string result = _s1.PadLeft(6, '#');
+Console.WriteLine("String column:  ######");
+Console.WriteLine("PadLeft:        {0}", result);
+
+/*
+String column:  ######
+PadLeft:        Jacuzzi
+*/
+```
+
+Example 8. PadLeftCrop: Text is wider than text column it would be cropped on the left.
+```csharp
+string result = _s1.PadLeftCrop(6, '#');
+Console.WriteLine("String column:  ######");
+Console.WriteLine("PadLeftCrop:    {0}", result);
+
+/*
+String column:  ######
+PadLeftCrop:    acuzzi
+*/
+```
+
+Example 9. PadRight: Text is left justified and padding is added to the right.
+```csharp
+string result = _s1.PadRight(8, '#');
+Console.WriteLine("String column:  ########");
+Console.WriteLine("PadRight:       {0}", result);
+
+/*
+String column:  ########
+PadRight:       Jacuzzi#
+*/
+```
+
+Example 10. PadRight: If text is wider than defined text column width it would return the text.
+```csharp
+string result = _s1.PadRight(6, '#');
+Console.WriteLine("String column:  ######");
+Console.WriteLine("PadRight:       {0}", result);
+
+/*
+String column:  ######
+PadRight:       Jacuzzi
+*/
+```
+
+Example 11. PadRightCrop: If text is wider than defined text column it would be cropped on the right.
+```csharp
+string result = _s1.PadRightCrop(6, '#');
+Console.WriteLine("String column:  ######");
+Console.WriteLine("PadRightCrop:   {0}", result);
+Console.WriteLine("");
+
+/*
+String column:  ######
+PadRightCrop:   Jacuzz
+*/
+```
+
+Example 12. String Replace: Replace each item in the character array with a given character value.
+```csharp
+char[] ch = new char[] { '{', '}', '[', ']' };
+char chn = ' ';
+string result = _s2.Replace(ch, chn);
+Console.WriteLine("StringReplace \nOldText: {0} \nNewText: {1}",  _s2, result );
+
+/*
+StringReplace
+OldText: Lorem ipsum dolor sit amet, [consectetur adipiscing elit]. Curabitur pretium {varius} pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.
+NewText: Lorem ipsum dolor sit amet,  consectetur adipiscing elit . Curabitur pretium  varius  pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.
+*/
+```
+
+Example 13. String Replace: Replace each item in the character array with the corresponding by array index character array values;
+```csharp
+char[] ch = new char[] { '{', '}', '[' };
+char[] ch2 = new char[] { '?', '!', '*' };
+
+string result = _s2.Replace(ch, ch2);
+Console.WriteLine("StringReplace \nOldText: {0} \nNewText: {1}", _s2, result);
+
+/*
+StringReplace
+OldText: Lorem ipsum dolor sit amet, [consectetur adipiscing elit]. Curabitur pretium {varius} pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.
+NewText: Lorem ipsum dolor sit amet, *consectetur adipiscing elit]. Curabitur pretium ?varius! pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.
+*/
+```
+
+Example 14. String Replace: Replace each item in the string array with the corresponding replacement string.
+```csharp
+string[] ch = new string[] { "non", "}", "elit", "]" };
+string chn = "@";
+string result = _s2.Replace(ch, chn);
+Console.WriteLine("StringReplace \nOldText: {0} \nNewText: {1}", _s2, result);
+
+/*
+StringReplace
+OldText: Lorem ipsum dolor sit amet, [consectetur adipiscing elit]. Curabitur pretium {varius} pharetra. Donec luctus nisl non massa tincidunt @#&^% dapibus.
+NewText: Lorem ipsum dolor sit amet, [consectetur adipiscing @@. Curabitur pretium {varius@ pharetra. Donec luctus nisl @ massa tincidunt @#&^% dapibus.
+*/
+```
+
+Example 15. First character to lower case: Replace the first upper case character 
+```csharp
+
+/*
+FirstCharToLowercase
+OldText: Lorem ipsum dolor sit amet
+NewText: lorem ipsum dolor sit amet
+*/
+```
+
+Example 16 First charcter to upper case: Replace the first lower case character to upper case.
+```csharp
+
+/*
+FirstCharToUppercase
+OldText: torem ipsum dolor sit amet
+NewText: Torem ipsum dolor sit amet
+*/
+```
+
+Example 17 Replace Escape and illegal characters from file name string.
+```csharp
+
+/*
+NoEscapeIllegalChars
+OldText:  
+UnsafeFileName"<>?|\/:.cs
+NewText: UnsafeFileName.cs
+*/
+```
+
+
+Example 18 String to Stream
+```csharp
+
+/*
+
+*/
+```
+
+Example 19 Stream to String
+```csharp
+
+/*
+
+*/
+```
 
 # Code Documentation
 MSDN-style code documentation can be found  [here](http://fredekstrand.github.io/StringOperations).
