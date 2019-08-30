@@ -248,17 +248,31 @@ NewText: UnsafeFileName.cs
 
 Example 18 String to Stream
 ```csharp
+String str = _s4;
+Stream sm = StringUtil.StringToStream(str);
+StreamReader sr = new StreamReader(sm, Encoding.Unicode);
+string result = sr.ReadToEnd();
 
+Console.WriteLine("StringToStream \nOldText: {0} \nNewText: {1}", _s4, result);
 /*
-
+StringToStream
+OldText: Lorem ipsum dolor sit amet
+NewText: Lorem ipsum dolor sit amet
 */
 ```
 
 Example 19 Stream to String
 ```csharp
+String str = _s4;
+Stream sm = StringUtil.StringToStream(str);
+string result = StringUtil.StreamToString(sm);
+
+Console.WriteLine("StreamToString \nOldText: {0} \nNewText: {1}", _s4, result);
 
 /*
-
+StreamToString
+OldText: Lorem ipsum dolor sit amet
+NewText: Lorem ipsum dolor sit amet
 */
 ```
 
