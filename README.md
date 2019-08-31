@@ -286,7 +286,7 @@ NewText: Lorem Ipsum Dolor Sit Amet Foo, Consectetur Adipiscing Elit Foo. Curabi
 ```
 
 # Code Documentation
-MSDN-style code documentation can be found  [here](http://fredekstrand.github.io/StringOperations).
+MSDN-style code documentation can be found  [here](http://fredekstrand.github.io/ClassDocStringOperations).
 
 # History
  1.0.0.0 Initial release into the wild.
