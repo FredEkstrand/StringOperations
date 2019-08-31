@@ -14,6 +14,10 @@ namespace StringOperationsTester
         private const string StringSet2 = "Jacuzzi"; // (7)
         private const string StringSet3 = "AsafeFileName.txt";
         private const string StringSet4 = "UnsafeFileName\"<>?|\\/:.cs";
+        private const string StringSet5 = "Lorem ipsum dolor sit amet foo, consectetur adipiscing elit foo. Curabitur pretium foo varius pharetra. Donec luctus foo nisl non massa tincidunt foo foo dapibus.";
+        private const string StringSet6a = "Lorem isum dolor sit met foo, consectetur diiscing elit foo. Curbitur retium foo vrius hretr. Donec luctus foo nisl non mss tincidunt foo foo dibus.";
+        private const string StringSet6b = "Lorem ipsum dolor sit amet , consectetur adipiscing elit  Curabitur pretium  varius pharetra Donec luctus  nisl non massa tincidunt   dapibus";
+        private const string StringSet6c = "Lorem Ipsum Dolor Sit Amet Foo, Consectetur Adipiscing Elit Foo. Curabitur Pretium Foo Varius Pharetra. Donec Luctus Foo Nisl Non Massa Tincidunt Foo Foo Dapibus.";
 
         #region String Center Test Sets
 
@@ -188,7 +192,7 @@ namespace StringOperationsTester
         [Test]
         [Category("String Replace Test Sets")]
         public void StringReplaceOldCharArrayOnly()
-        { // this version is for when there is no replacement
+        { 
             char[] ch = new char[] { '{', '}', '[' };
             char chn = '*';
             string result = StringSet1.Replace(ch, chn);
@@ -279,6 +283,38 @@ namespace StringOperationsTester
             string result = StringUtil.StreamToString(sm);
 
             Assert.AreEqual(StringSet3, result);
+        }
+
+        [Test]
+        [Category("Remove")]
+        public void RemoveCharacters()
+        {
+            char[] ca = new char[] { 'a', 'p' };
+            string str = String.Copy(StringSet5);
+            string result = str.Remove(ca);
+
+            Assert.AreEqual(StringSet6a, result);
+        }
+
+        [Test]
+        [Category("Remove")]
+        public void RemoveSubstrings()
+        {
+            string[] ca = new string[] { "foo", "." };
+            string str = String.Copy(StringSet5);
+            string result = str.Remove(ca);
+
+            Assert.AreEqual(StringSet6b, result);
+        }
+
+        [Test]
+        [Category("Remove")]
+        public void Titlecase()
+        {
+            string str = String.Copy(StringSet5);
+            string result = str.ToTitleCase();
+
+            Assert.AreEqual(StringSet6c, result);
         }
 
         #endregion

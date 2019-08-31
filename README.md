@@ -12,15 +12,24 @@
 A collection of string operations that I have found useful time to time.
 
 ## Features
-* Pad Center. Centers a string in a defined column width with padding. If string is larger than the defined column width the string would be returned.
-* Pad Center Crop. Centers a string in a defined column width with padding. If the string is wider than the defined column it would be centered in the column. Then cropped on both ends to maintain column width.
-* Pad Left Crop. Pad left a string in a defined column width. If the string is larger than the defined column after adding the padding it would be cropped. The cropping would be on the right end of the string to maintain column width.
-* Pad Right Crop. Pad right a string in a defined column width.  If the string is larger than the defined column after adding the padding it would be cropped. The cropping would be on the left end of the string to maintain column width.
-* Returns a new string in which all occurrences of all Unicode character in an array with the specified Unicode character.
-* Returns a new string in which all occurrences of all Unicode characters in an array are replaced with the specified Unicode characters in an array at the same element index.
+* PadCenter: Centers a string in a defined column width with padding on both ends.
+* PadCenterCrop: Centers a string in a defined column width with padding. If the string is wider than the defined column it would be centered in the column. Then cropped on both ends to maintain column width.
+* PadLeftCrop: Text in the defined text column would be right justified and added padding on the left up to column width.
+* PadRightCrop: Text in the defined text column would be left justified and added padding on the right up to column width.
+* Replace: Returns a new string in which all occurrences of all Unicode character in an array with the specified Unicode character.
+* Replace: Returns a new string in which all occurrences of all substring in an array with the specified Unicode character.
+* Replace: Returns a new string in which all occurrences of all Unicode characters in an array are replaced with the specified Unicode characters in an array at the same element index. 
+* FirstCharToLowercase: Returns a new string in which the first character in the string is set to lower case.
+* FirstCharToUppercase: Returns a new string in which the first character in the string is set to upper case.
+* EscapeIllegalChars: Remove all escape and illegal characters in a file name.
+* Remove: Returns a new string in which the specified characters from the current string are deleted.
+* Remove: Returns a new string in which the specified substrings from the current string are deleted.
+* ToTitleCase: Converts the specified string to title case.
+* StringToStream: Return a converted string to a stream.
+* StreamToString: Return a converted stream to a string;
 
 # Getting started
-The souce code is written in C# and targeted for the .Net Framework 4.0 and later. Download the entire project and compile.
+The source code is written in C# and targeted for the .Net Framework 4.0 and later. Download the entire project and compile.
 
 # Usage
 Once you have compiled the project reference the dll in your Visual Studio project.
@@ -36,6 +45,7 @@ Strings used in code samples.
         private const string _s3 = "UnsafeFileName\"<>?|\\/:.cs";
         private const string _s4 = "Lorem ipsum dolor sit amet";
         private const string _s5 = "torem ipsum dolor sit amet";
+		private const string _s6 = "Lorem ipsum dolor sit amet foo, consectetur adipiscing elit foo. Curabitur pretium foo varius pharetra. Donec luctus foo nisl non massa tincidunt foo foo dapibus.";
 ```
 Example 1. PadCenter: Center string inside a defined column size. spaces would be padded to edge of column.
 ```csharp
@@ -98,31 +108,7 @@ PadCenterCrop:  Jacuzz
 */
 ```
 
-Example 6. PadLeft: Text is shorter than text column it would be right justified and added padding on the left up to column width.
-```csharp
-string result = _s1.PadLeft(8, '#');
-Console.WriteLine("String column:  ########");
-Console.WriteLine("PadLeft:        {0}", result);
-
-/*
-String column:  ########
-PadLeft:        #Jacuzzi
-*/
-```
-
-Example 7. PadLeft: Text is wider than given column size it would return the text.
-```csharp
-string result = _s1.PadLeft(6, '#');
-Console.WriteLine("String column:  ######");
-Console.WriteLine("PadLeft:        {0}", result);
-
-/*
-String column:  ######
-PadLeft:        Jacuzzi
-*/
-```
-
-Example 8. PadLeftCrop: Text is wider than text column it would be cropped on the left.
+Example 6. PadLeftCrop: Text is wider than text column it would be cropped on the left.
 ```csharp
 string result = _s1.PadLeftCrop(6, '#');
 Console.WriteLine("String column:  ######");
@@ -134,31 +120,7 @@ PadLeftCrop:    acuzzi
 */
 ```
 
-Example 9. PadRight: Text is left justified and padding is added to the right.
-```csharp
-string result = _s1.PadRight(8, '#');
-Console.WriteLine("String column:  ########");
-Console.WriteLine("PadRight:       {0}", result);
-
-/*
-String column:  ########
-PadRight:       Jacuzzi#
-*/
-```
-
-Example 10. PadRight: If text is wider than defined text column width it would return the text.
-```csharp
-string result = _s1.PadRight(6, '#');
-Console.WriteLine("String column:  ######");
-Console.WriteLine("PadRight:       {0}", result);
-
-/*
-String column:  ######
-PadRight:       Jacuzzi
-*/
-```
-
-Example 11. PadRightCrop: If text is wider than defined text column it would be cropped on the right.
+Example 7. PadRightCrop: If text is wider than defined text column it would be cropped on the right.
 ```csharp
 string result = _s1.PadRightCrop(6, '#');
 Console.WriteLine("String column:  ######");
@@ -171,7 +133,7 @@ PadRightCrop:   Jacuzz
 */
 ```
 
-Example 12. String Replace: Replace each item in the character array with a given character value.
+Example 8. String Replace: Replace each item in the character array with a given character value.
 ```csharp
 char[] ch = new char[] { '{', '}', '[', ']' };
 char chn = ' ';
@@ -185,7 +147,7 @@ NewText: Lorem ipsum dolor sit amet,  consectetur adipiscing elit . Curabitur pr
 */
 ```
 
-Example 13. String Replace: Replace each item in the character array with the corresponding by array index character array values;
+Example 9. String Replace: Replace each item in the character array with the corresponding by array index character array values;
 ```csharp
 char[] ch = new char[] { '{', '}', '[' };
 char[] ch2 = new char[] { '?', '!', '*' };
@@ -200,7 +162,7 @@ NewText: Lorem ipsum dolor sit amet, *consectetur adipiscing elit]. Curabitur pr
 */
 ```
 
-Example 14. String Replace: Replace each item in the string array with the corresponding replacement string.
+Example 10. String Replace: Replace each item in the string array with the corresponding replacement string.
 ```csharp
 string[] ch = new string[] { "non", "}", "elit", "]" };
 string chn = "@";
@@ -214,7 +176,7 @@ NewText: Lorem ipsum dolor sit amet, [consectetur adipiscing @@. Curabitur preti
 */
 ```
 
-Example 15. First character to lower case: Replace the first upper case character 
+Example 11. First character to lower case: Replace the first upper case character 
 ```csharp
 
 /*
@@ -224,7 +186,7 @@ NewText: lorem ipsum dolor sit amet
 */
 ```
 
-Example 16 First charcter to upper case: Replace the first lower case character to upper case.
+Example 12. First charcter to upper case: Replace the first lower case character to upper case.
 ```csharp
 
 /*
@@ -234,7 +196,7 @@ NewText: Torem ipsum dolor sit amet
 */
 ```
 
-Example 17 Replace Escape and illegal characters from file name string.
+Example 13. Replace Escape and illegal characters from file name string.
 ```csharp
 
 /*
@@ -246,7 +208,7 @@ NewText: UnsafeFileName.cs
 ```
 
 
-Example 18 String to Stream
+Example 14. String to Stream
 ```csharp
 String str = _s4;
 Stream sm = StringUtil.StringToStream(str);
@@ -261,7 +223,7 @@ NewText: Lorem ipsum dolor sit amet
 */
 ```
 
-Example 19 Stream to String
+Example 15. Stream to String
 ```csharp
 String str = _s4;
 Stream sm = StringUtil.StringToStream(str);
@@ -276,11 +238,58 @@ NewText: Lorem ipsum dolor sit amet
 */
 ```
 
+Example 16. Remove Characters
+```csharp
+char[] ca = new char[] { 'a', 'p' };
+string str = String.Copy(_s6);
+string result = str.Remove(ca);
+
+Console.WriteLine("RemoveCharacters \nOldText: {0} \nNewText: {1}", str, result);
+Console.WriteLine();
+
+/*
+RemoveCharacters
+OldText: Lorem ipsum dolor sit amet foo, consectetur adipiscing elit foo. Curabitur pretium foo varius pharetra. Donec luctus foo nisl non massa tincidunt foo foo dapibus.
+NewText: Lorem isum dolor sit met foo, consectetur diiscing elit foo. Curbitur retium foo vrius hretr. Donec luctus foo nisl non mss tincidunt foo foo dibus.
+*/
+```
+
+Example 17. Remove Substrings
+```csharp
+string[] ca = new string[] { "foo", "." };
+string str = String.Copy(_s6);
+string result = str.Remove(ca);
+
+Console.WriteLine("Remove Substrings \nOldText: {0} \nNewText: {1}", str, result);
+Console.WriteLine();
+
+/*
+Remove Substrings
+OldText: Lorem ipsum dolor sit amet foo, consectetur adipiscing elit foo. Curabitur pretium foo varius pharetra. Donec luctus foo nisl non massa tincidunt foo foo dapibus.
+NewText: Lorem ipsum dolor sit amet , consectetur adipiscing elit  Curabitur pretium  varius pharetra Donec luctus  nisl non massa tincidunt   dapibus
+*/
+```
+
+Example 18. ToTitleCase
+```csharp
+string str = String.Copy(_s6);
+string result = str.ToTitleCase();
+
+Console.WriteLine("ToTitleCase \nOldText: {0} \nNewText: {1}", str, result);
+Console.WriteLine();
+
+/*
+ToTitleCase
+OldText: Lorem ipsum dolor sit amet foo, consectetur adipiscing elit foo. Curabitur pretium foo varius pharetra. Donec luctus foo nisl non massa tincidunt foo foo dapibus.
+NewText: Lorem Ipsum Dolor Sit Amet Foo, Consectetur Adipiscing Elit Foo. Curabitur Pretium Foo Varius Pharetra. Donec Luctus Foo Nisl Non Massa Tincidunt Foo Foo Dapibus.
+*/
+```
+
 # Code Documentation
 MSDN-style code documentation can be found  [here](http://fredekstrand.github.io/StringOperations).
 
 # History
- 1.0.0 Initial release into the wild.
+ 1.0.0.0 Initial release into the wild.
 
 # Contributing
 

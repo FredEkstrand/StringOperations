@@ -27,9 +27,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Globalization;
 
 namespace Ekstrand.Text
 {
+	/// <summary>
+    /// A collection of string extension operations.
+    /// </summary>
     public static class StringOperations
     {
         /// <summary>
@@ -174,10 +178,10 @@ namespace Ekstrand.Text
         /// Returns a new string in which all occurrences of all Unicode character in an array with the specified Unicode character.
         /// </summary>
         /// <param name="str">String to have its characters replaced.</param>
-        /// <param name="oldChars">The Unicode character array of characters to be replaced.</param>
-        /// <param name="newChar">The Unicode character to replace all occurrences of oldChar[]. </param>
+        /// <param name="oldChars">Character array of characters to be replaced.</param>
+        /// <param name="newChar">Character to replace all occurrences found. </param>
         /// <returns>
-        /// A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
+        /// Returns a new string with all occurrences of the defined characters replaced. 
         /// </returns>
         public static string Replace(this string str, char[] oldChars, char newChar)
         {
@@ -188,15 +192,33 @@ namespace Ekstrand.Text
             return str;
         }
 
+        /// <summary>
+        /// Returns a new string in which all occurrences of all substring in an array with the specified Unicode character.
+        /// </summary>
+        /// <param name="str">String to have its substring replaced.</param>
+        /// <param name="stra">String array of substring to be replaced.</param>
+        /// <param name="strn">String to replace all occurrences found. </param>
+        /// <returns>
+        /// Returns a new string with all occurrences of defined substrings replaced.
+        /// </returns>
+        public static string Replace(this string str, string[] stra, string strn)
+        {
+            for (int i = 0; i < stra.Length; i++)
+            {
+                str = str.Replace(stra[i], strn);
+            }
+            return str;
+        }
+
 
         /// <summary>
         /// Returns a new string in which all occurrences of all Unicode characters in an array are replaced with the specified Unicode characters in an array at the same element index.
         /// </summary>
         /// <param name="str">String to have its characters replaced.</param>
-        /// <param name="oldChars">The Unicode character array of characters to be replaced</param>
-        /// <param name="newChars">The Unicode character to replace all occurrences of oldChar[] at same element index.</param>
+        /// <param name="oldChars">Character array of characters to be replaced</param>
+        /// <param name="newChars">Character array to replace all occurrences of defined characters in the character array index by index.</param>
         /// <returns>
-        ///  A string that is equivalent to this instance except that all instances of oldChar are replaced with newChar. If oldChar is not found in the current instance, the method returns the current instance unchanged. 
+        ///  Returns a new string with all characters occurrences replaced by index in replacement character array. 
         /// </returns>
         public static string Replace(this string str, char[] oldChars, char[] newChars)
         {
@@ -237,7 +259,7 @@ namespace Ekstrand.Text
         }
 
         /// <summary>
-        /// Remove all escape illegal characters in a file name
+        /// Remove all escape and illegal characters in a file name
         /// </summary>
         /// <param name="str">String to have illegal characters removed if present.</param>
         /// <returns>Returns a new string with each illegal character(s) removed.</returns>
@@ -250,6 +272,84 @@ namespace Ekstrand.Text
             });
 
             return answer;
+        }
+
+        /// <summary>
+        /// Returns a new string in which the specified characters from the current string are deleted.
+        /// </summary>
+        /// <param name="str">String to have characters deleted.</param>
+        /// <param name="oldChars">Character array of characters to be deleted from the given string.</param>
+        /// <returns>Returns a new string which the specified characters are deleted.</returns>
+        public static string Remove(this string str, char[] oldChars)
+        {
+            string strc = String.Copy(str);
+
+            for (int i = 0; i < oldChars.Length; i++)
+            {
+                strc = RemoveAll(strc, oldChars[i]);
+            }
+            return strc;
+        }
+
+        /// <summary>
+        /// Returns a new string in which the specified substrings from the current string are deleted.
+        /// </summary>
+        /// <param name="str">String to have its substring deleted.</param>
+        /// <param name="oldChars">String array of substrings to be deleted from the given string.</param>
+        /// <returns>Returns a new string which the specified substrings are deleted</returns>
+        public static string Remove(this string str, string[] oldChars)
+        {
+            string strc = String.Copy(str);
+
+            for(int i = 0; i < oldChars.Length; i++)
+            {
+                strc = RemoveAll(strc, oldChars[i]);
+            }
+            return strc;
+        }
+
+        /// <summary>
+        /// Converts the specified string to titlecase
+        /// </summary>
+        /// <param name="title">String to be converted to titlecase</param>
+        /// <returns>Returns a new string converted to titlecase</returns>
+        public static string ToTitleCase(this string title)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(title.ToLower());
+        }
+
+        /// <summary>
+        /// Remove all occurrences of a given substring from a given string.
+        /// </summary>
+        /// <param name="str">String to have all occurrences of a substring to be removed.</param>
+        /// <param name="strf">Substring to be deleted from given string.</param>
+        /// <returns>Returns a new string which the specified substring are deleted.</returns>
+        private static string RemoveAll(string str, string strf)
+        {
+            string strc = String.Copy(str);
+            while((strc.IndexOf(strf)) != -1)
+            {
+                strc = strc.Remove(strc.IndexOf(strf), strf.Length);
+            }
+
+            return strc;
+        }
+
+        /// <summary>
+        /// Remove all occurrences of a given character from a given string.
+        /// </summary>
+        /// <param name="str">String to have all occurrences of a character to be deleted.</param>
+        /// <param name="strf">Character array of characters to be deleted from the given string.</param>
+        /// <returns>Returns a new string with the specified characters deleted.</returns>
+        private static string RemoveAll(string str, char strf)
+        {
+            string strc = String.Copy(str);
+            while ((strc.IndexOf(strf)) != -1)
+            {
+                strc = strc.Remove(strc.IndexOf(strf), 1);
+            }
+
+            return strc;
         }
 
         /// <summary>

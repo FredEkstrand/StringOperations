@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StringOperations</name>
+    </assembly>
+    <members>
+        <member name="T:Ekstrand.Text.StringOperations">
+            <summary>
+            A collection of string extension operations.
+            </summary>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadCenter(System.String,System.Int32,System.Char)">
+            <summary>
+            Center align text in a defined string column. 
+            </summary>
+            <param name="str">String to be centered in string column.</param>
+            <param name="totalWidth">Integer total width of the string column (length) to place a string in.</param>
+            <param name="paddingChar">Char padding character default is space.</param>
+            <returns>Return a string centered in defined length.</returns>
+            <remarks>If given string is larger than given string column length the given string is returned.</remarks>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadCenterCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Center align text in a defined string column. If given string is larger it would be centered and crop on both ends.
+            </summary>
+            <param name="str">String to be inserted in the string column</param>
+            <param name="totalWidth">Integer string column width (length).</param>
+            <param name="paddingChar">Char char value used to padded the inserted string into defined string column.</param>
+            <returns>Return a string with the inserted string centered aligned. The return string would also cropped any characters from the given string if needed.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadRightCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Left align text in a defined string column.
+            </summary>
+            <param name="str">String to be inserted into a defined sting column.</param>
+            <param name="totalWidth">Integer total width of the string column (length).</param>
+            <param name="paddingChar">Char character value used for padding. Default is space.</param>
+            <returns>Returns a new string with given string left aligned to string column and any characters over the defined column width would be cropped.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.PadLeftCrop(System.String,System.Int32,System.Char)">
+            <summary>
+            Right align text in a defined string column.
+            </summary>
+            <param name="str">String to be inserted into a string column.</param>
+            <param name="totalWidth">Integer total width of the string column (length).</param>
+            <param name="paddingChar">Char character value used for padding. Default is space.</param>
+            <returns>Returns a new string with the given string right aligned to the string column and any characters over the defined column would be cropped.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Replace(System.String,System.Char[],System.Char)">
+            <summary>
+            Returns a new string in which all occurrences of all Unicode character in an array with the specified Unicode character.
+            </summary>
+            <param name="str">String to have its characters replaced.</param>
+            <param name="oldChars">Character array of characters to be replaced.</param>
+            <param name="newChar">Character to replace all occurrences found. </param>
+            <returns>
+            Returns a new string with all occurrences of the defined characters replaced. 
+            </returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Replace(System.String,System.String[],System.String)">
+            <summary>
+            Returns a new string in which all occurrences of all substring in an array with the specified Unicode character.
+            </summary>
+            <param name="str">String to have its substring replaced.</param>
+            <param name="stra">String array of substring to be replaced.</param>
+            <param name="strn">String to replace all occurrences found. </param>
+            <returns>
+            Returns a new string with all occurrences of defined substrings replaced.
+            </returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Replace(System.String,System.Char[],System.Char[])">
+            <summary>
+            Returns a new string in which all occurrences of all Unicode characters in an array are replaced with the specified Unicode characters in an array at the same element index.
+            </summary>
+            <param name="str">String to have its characters replaced.</param>
+            <param name="oldChars">Character array of characters to be replaced</param>
+            <param name="newChars">Character array to replace all occurrences of defined characters in the character array index by index.</param>
+            <returns>
+             Returns a new string with all characters occurrences replaced by index in replacement character array. 
+            </returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FirstCharToLowercase(System.String)">
+            <summary>
+            Returns a new string in which the first character in the string is set to lower case.
+            </summary>
+            <param name="str">String to have its first character set to lower case.</param>
+            <returns>A string that is equivalent to this instance except that the first character is lower case.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FirstCharToUppercase(System.String)">
+            <summary>
+            Returns a new string in which the first character in the string is set to upper case.
+            </summary>
+            <param name="str"></param>
+            <returns>A string that is equivalent to this instance except that the first character is upper case.</returns>String to have its first character set to upper case.
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.EscapeIllegalChars(System.String)">
+            <summary>
+            Remove all escape and illegal characters in a file name
+            </summary>
+            <param name="str">String to have illegal characters removed if present.</param>
+            <returns>Returns a new string with each illegal character(s) removed.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Remove(System.String,System.Char[])">
+            <summary>
+            Returns a new string in which the specified characters from the current string are deleted.
+            </summary>
+            <param name="str">String to have characters deleted.</param>
+            <param name="oldChars">Character array of characters to be deleted from the given string.</param>
+            <returns>Returns a new string which the specified characters are deleted.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.Remove(System.String,System.String[])">
+            <summary>
+            Returns a new string in which the specified substrings from the current string are deleted.
+            </summary>
+            <param name="str">String to have its substring deleted.</param>
+            <param name="oldChars">String array of substrings to be deleted from the given string.</param>
+            <returns>Returns a new string which the specified substrings are deleted</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.ToTitleCase(System.String)">
+            <summary>
+            Converts the specified string to titlecase
+            </summary>
+            <param name="title">String to be converted to titlecase</param>
+            <returns>Returns a new string converted to titlecase</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.RemoveAll(System.String,System.String)">
+            <summary>
+            Remove all occurrences of a given substring from a given string.
+            </summary>
+            <param name="str">String to have all occurrences of a substring to be removed.</param>
+            <param name="strf">Substring to be deleted from given string.</param>
+            <returns>Returns a new string which the specified substring are deleted.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.RemoveAll(System.String,System.Char)">
+            <summary>
+            Remove all occurrences of a given character from a given string.
+            </summary>
+            <param name="str">String to have all occurrences of a character to be deleted.</param>
+            <param name="strf">Character array of characters to be deleted from the given string.</param>
+            <returns>Returns a new string with the specified characters deleted.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FillString(System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Populates the string builder a defined number of blanks.
+            </summary>
+            <param name="sb">StringBuilder instance to populate blanks into.</param>
+            <param name="length">Integer number of blanks to be inserted into the StringBuiler.</param>
+            <returns>Returns the StringBuilder with populated blanks (spaces).</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringOperations.FillString(System.Text.StringBuilder,System.Int32,System.Char)">
+            <summary>
+            Populates the string builder with defined character.
+            </summary>
+            <param name="sb">StringBuilder instance to populate blanks into.</param>
+            <param name="length">Integer number of blanks to be inserted into the StringBuiler.</param>
+            <param name="chr">Character to be used to populate the StringBuilder.</param>
+            <returns>Returns the StringBuilder with populated blanks (spaces).</returns>
+        </member>
+        <member name="T:Ekstrand.Text.StringUtil">
+            <summary>
+            A collection of string operations that are not extension methods
+            </summary>
+        </member>
+        <member name="M:Ekstrand.Text.StringUtil.StringToStream(System.String)">
+            <summary>
+            Return a converted string to a stream
+            </summary>
+            <param name="str">String to be converted to a stream.</param>
+            <returns>A stream that has the converted string value.</returns>
+        </member>
+        <member name="M:Ekstrand.Text.StringUtil.StreamToString(System.IO.Stream)">
+            <summary>
+            Return a converted stream to a string
+            </summary>
+            <param name="str">Stream to be converted to a string.</param>
+            <returns>A string that has been converted from a stream.</returns>
+        </member>
+    </members>
+</doc>
