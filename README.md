@@ -178,7 +178,8 @@ NewText: Lorem ipsum dolor sit amet, [consectetur adipiscing @@. Curabitur preti
 
 Example 11. First character to lower case: Replace the first upper case character 
 ```csharp
-
+string result = _s4.FirstCharToLowercase();
+Console.WriteLine("FirstCharToLowercase \nOldText: {0} \nNewText: {1}", _s4, result);
 /*
 FirstCharToLowercase
 OldText: Lorem ipsum dolor sit amet
@@ -188,7 +189,8 @@ NewText: lorem ipsum dolor sit amet
 
 Example 12. First charcter to upper case: Replace the first lower case character to upper case.
 ```csharp
-
+string result = _s5.FirstCharToUppercase();
+Console.WriteLine("FirstCharToUppercase \nOldText: {0} \nNewText: {1}", _s5, result);
 /*
 FirstCharToUppercase
 OldText: torem ipsum dolor sit amet
@@ -198,7 +200,10 @@ NewText: Torem ipsum dolor sit amet
 
 Example 13. Replace Escape and illegal characters from file name string.
 ```csharp
-
+string badStr = _s3;
+badStr = BuildUnsafeFileName(badStr);
+string result = badStr.EscapeIllegalChars();
+Console.WriteLine("NoEscapeIllegalChars \nOldText: {0} \nNewText: {1}", badStr, result);
 /*
 NoEscapeIllegalChars
 OldText:  
