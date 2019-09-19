@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperations", "StringO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsTester", "..\StringOperationsTester\StringOperationsTester.csproj", "{88516EAF-2721-449A-9CFB-B0E8847DF33B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringOperationsDemo", "..\StringOperationsDemo\StringOperationsDemo.csproj", "{F7C87606-4C49-4819-802C-2850625D9049}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -114,10 +114,6 @@ namespace Ekstrand.Text
                         sb[i] = str[idx];
                         idx++;
                     }
-                    else
-                    {
-                        sb.Append(paddingChar);
-                    }
                 }
 
             }

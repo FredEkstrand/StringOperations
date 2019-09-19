@@ -1,7 +1,0 @@
-C:\SoftwareProjects\StringOperations\StringOperations\bin\Debug\StringOperations.xml
-C:\SoftwareProjects\StringOperations\StringOperations\bin\Debug\StringOperations.dll
-C:\SoftwareProjects\StringOperations\StringOperations\bin\Debug\StringOperations.pdb
-C:\SoftwareProjects\StringOperations\StringOperations\obj\Debug\StringOperations.csprojAssemblyReference.cache
-C:\SoftwareProjects\StringOperations\StringOperations\obj\Debug\StringOperations.csproj.CoreCompileInputs.cache
-C:\SoftwareProjects\StringOperations\StringOperations\obj\Debug\StringOperations.dll
-C:\SoftwareProjects\StringOperations\StringOperations\obj\Debug\StringOperations.pdb

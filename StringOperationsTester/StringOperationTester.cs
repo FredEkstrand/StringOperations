@@ -129,6 +129,22 @@ namespace StringOperationsTester
             Assert.AreEqual('z', result[result.Length - 1]);
         }
 
+        [Test]
+        [Category("String Center Crop Wide Column")]
+        public void StringCenterCropWideColumn()
+        {
+            string result = StringSet2.PadCenterCrop(12, '*');
+            Console.WriteLine("Results: {0} ({1})", result, result.Length);
+
+            Assert.AreEqual(12, result.Length);
+            Assert.AreEqual('*', result[0]);
+            Assert.AreEqual('*', result[1]);
+            Assert.AreEqual('J', result[2]);
+            Assert.AreEqual('i', result[8]);
+            Assert.AreEqual('*', result[9]);
+            Assert.AreEqual('*', result[11]);
+        }
+
         #endregion
 
         #region String Pad Left Crop Test Sets
