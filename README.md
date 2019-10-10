@@ -7,7 +7,7 @@
 
 
 # Overview
-bbb
+
 A collection of string operations that I have found useful time to time.
 
 ## Features
